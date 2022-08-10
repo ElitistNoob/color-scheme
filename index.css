@@ -1,0 +1,160 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: 'Inter', sans-serif;
+    color: #D5D4D8;
+    background-color: #191919;
+}
+
+/* === Button === */
+
+.btn {
+    display: block;
+    font-size: .75rem;
+    font-weight: 500;
+    color: #D5D4D8;
+    background-color: #3D4B60;
+    border: none;
+    border-radius: 4px;
+    padding: 0.8125em 0.6875em;
+    min-width: 123px;
+    cursor: pointer;
+}
+
+button:focus {
+    outline: none;
+}
+
+/* === Form === */
+
+.menu {
+    position: absolute;
+    background-color: #1F2937;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    padding: 1.5em 1em;
+    gap: 0.8125em;
+    box-shadow: 0px 4px 11px rgba(0, 0, 0, 0.15);
+}
+
+#color-picker {
+   width: 100px;
+   height: 40px;
+   border: none;
+   border-radius: 4px;
+}
+
+select {
+    color: #D5D4D8;
+    font-size: 1rem;
+    font-weight: 400;
+    border: 1px solid #D1D5DB;
+    border-radius: 6px;
+    padding: 0.5625em 0.8125em;
+    width: 100%;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    background: url('images/chevron-down.svg'), #1F2937;
+    background-repeat: no-repeat;
+    background-position: calc(100% - 1rem) center;
+}
+
+/* === Layout === */
+
+.container {
+    position: relative;
+    width: 550px;
+    border: 2px solid #D1D5DB;
+    box-shadow: 0 0 50px rgba(0 0 0 / .5);
+    overflow: hidden;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    text-align: center;
+}
+
+#color-grid {
+    max-height: 550px;
+    min-height: 300px;
+    height: 100vh;
+}
+
+#hex-list {
+    position: absolute;
+    background-color: #1F2937;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 0.6875em;
+    font-weight: 500;
+    font-size: .75rem;
+}
+
+/* === Media Queries === */
+
+@media(max-width: 380px) {
+    #mobile-menu {
+        position: absolute;
+        top: 7%;
+        right: 0;
+        transform: translateY(-7%);
+        width: fit-content;
+        aspect-ratio: 1;
+        padding: 0.15em 1em;
+        border: none;
+        border-radius: 5px 0 0 5px;
+        background-color: #D5D4D8;
+        background-image: url('images/hamburger-sidebar.svg');
+        background-size: cover;
+        z-index: 2;
+    }
+    #mobile-menu:hover {
+        opacity: 0.8;
+        transition: 100ms linear;
+    }
+    .menu {
+        flex-direction: column;
+        height: 100%;
+        justify-content: center;
+        align-items: center;
+        gap: 2em;
+    }
+    #menu-section {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        z-index: 1;
+        transition: 250ms ease-in-out;
+    }
+    .mobile-toggle {
+        transform: translateX(-100%);
+    }
+    .grid{
+        grid-template-columns: 1fr;
+    }
+    #hex-list {
+        display: flex;
+        height: 100%;
+        color: #D5D4D8;
+        justify-content: space-around;
+        width: fit-content;
+        writing-mode: vertical-rl;
+    }
+    #hex-list > * {
+        margin: 1em 0 0;
+    }
+}
